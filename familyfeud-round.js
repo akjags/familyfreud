@@ -1,8 +1,14 @@
 var ifr;
 var sum;
 var strikeCount;
+var data;
 
 $(document).ready(function(){
+  $.getJSON("questions/data.json",{}, function( input ){ 
+    /*  # do stuff here  */ 
+    data=input;
+    buildHTML();
+  });
   ifr = document.getElementById('sound');
   sum = 0;
   strikeCount = 0;
