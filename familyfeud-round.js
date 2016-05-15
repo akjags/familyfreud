@@ -2,20 +2,43 @@ var ifr;
 var sum;
 var strikeCount;
 var data;
+var questions = [];
+var answers = [];
+var answernum = [];
 
 $(document).ready(function(){
   $.getJSON("questions/data.json",{}, function( input ){ 
     /*  # do stuff here  */ 
     data=input;
-    buildHTML();
+    reformat();
   });
   ifr = document.getElementById('sound');
   sum = 0;
   strikeCount = 0;
+  nextQuestion();
+});
+
+function reformat() {
+  // Take the slightly poorly formatted data object and reformat it
+  for (question in data) {
+    questions.push(question);
+    qdata = data[question];
+    alist = [];
+    for (answer in qdata) {
+      if (qdata[answer]>1) {
+        alist.push({a:answer,n:qdata[answer]});
+      }
+    }
+    alist.sort(function(x,y) {return y.n-x.n;});
+    answers.push(alist);
+  }
+}
+
+function nextQuestion() {
   
   setUpAnswers();
   setUpBuzzers();
-});
+}
 
 function playBell() {
   ifr.src = 'ff-clang.wav';
