@@ -76,7 +76,8 @@ function setRoundInd() {
 }
 
 $(document).ready(function(){
-  setTimeout(initialize,10);
+  setTimeout(initialize,0);
+  //initialize();
 });
 
 function initialize() {
@@ -86,8 +87,9 @@ function initialize() {
     data=input;
     reformat();
   });
-  ifr = document.getElementById('sound');
   setTimeout(nextQuestion,1);
+  // nextQuestion();
+  ifr = document.getElementById('sound');
 }
 
 function nextQuestion() {
