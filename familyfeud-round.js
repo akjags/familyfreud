@@ -55,6 +55,9 @@ function changeTeam() {
   } else {
     attempt++;
   }
+  if (round==2) {
+    curteam = -1;
+  }
   resetStrikes();
   changeTeamGUI(curteam);
   setRoundInd();
@@ -146,7 +149,7 @@ function playBuzzer(num) {
 function setUpFlippers() {
   $('#rotating-answers').find('.active').on('click', 
       function() {
-        if (curteam>=0) {
+        if (round>=0) {
           var answer = $(this).find('.answer');
           if (!answer.hasClass('flipped')) {
             answer.addClass('flipped');
@@ -169,7 +172,7 @@ function strike() {
     if (strikeCount < 3){  
       strikeCount++;
       if (strikeCount==round_strikes[round]) {
-        changeTeam();
+        setTimeout(changeTeam,1500);
       }
       $('#strike-count').text(strikeCount);
       var wrong = $('#wrong');
