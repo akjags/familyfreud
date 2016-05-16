@@ -87,9 +87,17 @@ function initialize() {
     data=input;
     reformat();
   });
-  setTimeout(nextQuestion,1);
-  // nextQuestion();
+  pauseForQuestions();
   ifr = document.getElementById('sound');
+}
+
+function pauseForQuestions() {
+  while (questions.length==0) {
+    console.log('recalling');
+    setTimeout(pauseForQuestions,1);
+    return
+  }
+  nextQuestion();
 }
 
 function nextQuestion() {
@@ -172,8 +180,8 @@ function sumScores(score) {
 }
 
 function addQuestionData(curq) {
-  $("#question").text(questions[curq]);
 
+  $("#question").text(questions[curq]);
   if (curq >= questions.length) {
     $("#question").text("Final Scores!!");
     return;
