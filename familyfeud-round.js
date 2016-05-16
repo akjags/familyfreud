@@ -112,7 +112,7 @@ function addQuestionData(curq) {
   var e1 = ("</div>");
   var canswers = answers[curq];
   var at = [];
-  for (var ai=0; ai<5; ai++) {
+  for (var ai=0; ai<canswers.length; ai++) {
     var answer = canswers[ai];
     var l1 = "<section class=\"container active\" id=\"answer"+ai+"\" data-score=\""+answer.n+"\">";
     var l2 = "<div class=\"answer\">";
