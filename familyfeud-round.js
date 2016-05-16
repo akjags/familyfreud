@@ -1,11 +1,12 @@
 var ifr;
-var sum;
+var score0;
+var score1;
 var strikeCount;
 var data;
 var questions = [];
 var answers = [];
 var curq = 0;
-var curteam = 0; // track which team is answering questions
+var curteam = -1; // track which team is answering questions
 var round = 0; // 0 = first response team, 1 = second team trying
 // 2 = both teams had too many strikes, don't assign points
 
@@ -26,7 +27,8 @@ $(document).ready(function(){
     reformat();
   });
   ifr = document.getElementById('sound');
-  sum = 0;
+  score0 = 0;
+  score1 = 0;
   strikeCount = 0;
   setTimeout(nextQuestion,1);
 });
@@ -51,6 +53,8 @@ function nextQuestion() {
   if (curq>=1) {
     document.getElementById("wrapper_"+(curq-1)).style.display="none";
   }
+  round = 0;
+  curteam = -1;
   addQuestionData(curq);
   setUpFlippers();
   setUpBuzzers();
@@ -71,8 +75,10 @@ function setUpFlippers() {
         var answer = $(this).find('.answer');
         if (!answer.hasClass('flipped')) {
           answer.addClass('flipped');
-          playBell();
-          sumScores($(this).data("score"));
+          if (strikeCount<3) {
+            playBell();
+            sumScores($(this).data("score"));
+          }
         }
       });
 }
@@ -94,13 +100,22 @@ function setUpBuzzers() {
 }
 
 function sumScores(score) {
-  sum += score
-  $('#score').text(sum);
+  if (round==0) {
+    score0 += score;
+  }
+  else if (round==1) {
+    score1 += score;
+  }
+  $('#score').text(score0);
 }
 
 function addQuestionData(curq) {
   $("#question").text(questions[curq]);
 
+  if (curq >= questions.length) {
+    $("#question").text("Final Scores!!");
+    return;
+  }
   //now shit gets really complicated, we have to add to the "rotating-answers"
   //div a new wrapper with all the questions & answers... oh boy
   //we'll do this by adding the front of each tag in one array
