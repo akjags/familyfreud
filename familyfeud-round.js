@@ -23,9 +23,6 @@ var attempt = 0;
 
 var round_strikes = [1, 3];
 
-window.onbeforeunload = function() {
-  alert("Dude, are you sure you want to leave? Think of the kittens!");
-}
 function keycall(e) {
   if ((e.which || e.keyCode) == 116) {
     e.preventDefault(); alert('Blocking refresh...');
@@ -68,7 +65,7 @@ function changeTeamGUI(team) {
 
 function setRoundInd() {
   if (round==-1) {
-    $("roundind").text("Buzz when you have an answer in mind!");
+    $("#roundind").text("Buzz when you have an answer in mind!");
   } else if (round==0) {
     $("#roundind").text("One chance to take control!");
   } else if (round==1) {
@@ -84,7 +81,7 @@ $(document).ready(function(){
 
 function initialize() {
   $(document).on("keydown", keycall);
-  $.getJSON("questions/data.json",{}, function( input ){ 
+  $.getJSON("https://raw.githubusercontent.com/dbirman/familyfreud/master/questions/data.json",{}, function( input ){ 
     /*  # do stuff here  */ 
     data=input;
     reformat();
