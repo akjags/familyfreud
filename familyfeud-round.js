@@ -42,6 +42,7 @@ function buzzIn(team) {
     round = 0;
     attempt = 0;
     changeTeamGUI(curteam);
+    setRoundInd();
   }
 }
 
