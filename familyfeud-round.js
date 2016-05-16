@@ -7,20 +7,81 @@ var questions = [];
 var answers = [];
 var curq = 0;
 var curteam = -1; // track which team is answering questions
-var round = 0; // 0 = first response team, 1 = second team trying
-// 2 = both teams had too many strikes, don't assign points
+var round = -1;
+var attempt = 0;
+
+// Rules:
+// Question comes up
+// A team buzzes in -- they have one chance to get something on the board
+// this is round 0
+// if they dont (one strike), it goes to the other team immediately
+// if they get something, they have 3 strikes to get the rest
+// this is round 1
+// If they don't get everything, it goes to the other team, they have 3 
+// strikes to get whatever remains
+// next question...
+
+var round_strikes = [1, 3];
 
 window.onbeforeunload = function() {
   alert("Dude, are you sure you want to leave? Think of the kittens!");
 }
-function disableF5(e) {
+function keycall(e) {
   if ((e.which || e.keyCode) == 116) {
     e.preventDefault(); alert('Blocking refresh...');
+  }
+  if ((e.which || e.keyCode) == 37) {
+    buzzIn(0);
+  }
+  if ((e.which || e.keyCode) == 39) {
+    buzzIn(1);
+  }
+}
+
+function buzzIn(team) {
+  if (curteam < 0) {
+    ifr.src = "buzzer2.mp3";
+    curteam = team;
+    round = 0;
+    attempt = 0;
+    changeTeamGUI(curteam);
+  }
+}
+
+function changeTeam() {
+  flip = [1,0];
+  curteam = flip[curteam];
+  if (attempt==1) {
+    round++;
+    attempt = 0;
+  } else {
+    attempt++;
+  }
+  resetStrikes();
+  changeTeamGUI(curteam);
+  setRoundInd();
+}
+
+function changeTeamGUI(team) {
+  console.log('indicate that it is team:'+team+' now');
+}
+
+function advanceRound() {
+  setRoundInd();
+}
+
+function setRoundInd() {
+  if (round==-1) {
+    $("roundind").text("Buzz when you have an answer in mind!");
+  } else if (round==0) {
+    $("#roundind").text("One chance to take control!");
+  } else if (round==1) {
+    $("#roundind").text("Three chances to earn points!");
   }
 }
 
 $(document).ready(function(){
-  $(document).on("keydown", disableF5);
+  $(document).on("keydown", keycall);
   $.getJSON("questions/data.json",{}, function( input ){ 
     /*  # do stuff here  */ 
     data=input;
@@ -55,10 +116,16 @@ function nextQuestion() {
   }
   round = 0;
   curteam = -1;
+  resetStrikes();
   addQuestionData(curq);
   setUpFlippers();
-  setUpBuzzers();
+  setRoundInd();
   curq+=1;
+}
+
+function resetStrikes() {
+  strikeCount = 0;
+  $('#strike-count').text(strikeCount);
 }
 
 function playBell() {
@@ -72,41 +139,53 @@ function playBuzzer(num) {
 function setUpFlippers() {
   $('#rotating-answers').find('.active').on('click', 
       function() {
-        var answer = $(this).find('.answer');
-        if (!answer.hasClass('flipped')) {
-          answer.addClass('flipped');
-          if (strikeCount<3) {
-            playBell();
-            sumScores($(this).data("score"));
+        if (curteam>=0) {
+          var answer = $(this).find('.answer');
+          if (!answer.hasClass('flipped')) {
+            answer.addClass('flipped');
+            if (strikeCount<round_strikes[round] && round < 2) {
+              playBell();
+              sumScores($(this).data("score"));
+              if (round==0) {
+                round++;
+                attempt = 0;
+                setRoundInd();
+              }
+            }
           }
         }
       });
 }
 
-function setUpBuzzers() {
-  $('#strike').on('click', 
-      function() {
-        if (strikeCount < 3){  
-          strikeCount++;
-          $('#strike-count').text(strikeCount);
-          var strike = $('<span class="wrongx">X</span>')
-          var wrong = $('#wrong');
-          wrong.append(strike);
-          wrong.fadeIn('fast');
-          setTimeout(playBuzzer(1),100);
-          setTimeout(function() {wrong.fadeOut('fast');}, 1500);
-        }
-      });
+function strike() {
+  if (curteam>=0 && round < 2) {
+    if (strikeCount < 3){  
+      strikeCount++;
+      if (strikeCount==round_strikes[round]) {
+        changeTeam();
+      }
+      $('#strike-count').text(strikeCount);
+      var wrong = $('#wrong');
+      wrong.empty();
+      for (var i=0;i<strikeCount;i++) {
+        var strike = $('<span class="wrongx">X</span>')
+        wrong.append(strike);
+      }
+      wrong.fadeIn('fast');
+      setTimeout(playBuzzer(1),100);
+      setTimeout(function() {wrong.fadeOut('fast');}, 1500);
+    }
+  }
 }
 
 function sumScores(score) {
-  if (round==0) {
+  if (curteam==0) {
     score0 += score;
   }
-  else if (round==1) {
+  else if (curteam==1) {
     score1 += score;
   }
-  $('#score').text(score0);
+  $('#score').text(score0+score1);
 }
 
 function addQuestionData(curq) {
@@ -151,62 +230,3 @@ function addQuestionData(curq) {
   divstringform=f1+cell1+at[0]+at[1]+at[2]+at[3]+at[4]+celle+cell1+at[5]+at[6]+at[7]+at[8]+at[9]+celle+e1;
   $("#rotating-answers").append(divstringform);
 }
-
-
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section> 
-
-// <div class="wrapper" id="wrapper_0">
-//         <div class="cell">
-//           <section class="container active" id="answer1" data-score="43">
-//             <div class="answer">
-//               <figure class="front"><span>1</span></figure>
-//               <figure class="back">Answer one <span class="score">43</span></figure>
-//             </div>
-//           </section>
-
-//           <section class="container active" id="answer2" data-score="31">
-//             <div class="answer">
-//               <figure class="front"><span>2</span></figure>
-//               <figure class="back">Answer two <span class="score">31</span></figure>
-//             </div>
-//           </section>
-
-//           <section class="container active" id="answer3" data-score="23">
-//            <div class="answer">
-//               <figure class="front"><span>3</span></figure>
-//               <figure class="back">Answer three <span class="score">23</span></figure>
-//             </div>
-//           </section>
-
-//           <section class="container active" id="answer4" data-score="3">
-//            <div class="answer">
-//               <figure class="front"><span>4</span></figure>
-//               <figure class="back">Answer four <span class="score">3</span></figure>
-//             </div>
-//           </section>
-      
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section> 
-//         </div>
-
-//         <div class="cell">
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section>
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section>
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section>
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section>
-//           <section class="container">
-//             <div class="inactive"></div>
-//           </section>                
-//         </div>
-//       </div>
