@@ -1,6 +1,6 @@
 var ifr;
-var score0;
-var score1;
+var score0 = 0;
+var score1 = 0;
 var strikeCount;
 var data;
 var questions = [];
@@ -40,7 +40,7 @@ function keycall(e) {
 
 function buzzIn(team) {
   if (curteam < 0) {
-    ifr.src = "buzzer2.mp3";
+    playBuzzer(2);
     curteam = team;
     round = 0;
     attempt = 0;
@@ -66,10 +66,6 @@ function changeTeamGUI(team) {
   console.log('indicate that it is team:'+team+' now');
 }
 
-function advanceRound() {
-  setRoundInd();
-}
-
 function setRoundInd() {
   if (round==-1) {
     $("roundind").text("Buzz when you have an answer in mind!");
@@ -77,10 +73,16 @@ function setRoundInd() {
     $("#roundind").text("One chance to take control!");
   } else if (round==1) {
     $("#roundind").text("Three chances to earn points!");
+  } else if (round==2) {
+    $("#roundind").text("No more points this round! Next Question!!");
   }
 }
 
 $(document).ready(function(){
+  setTimeout(initialize,10);
+});
+
+function initialize() {
   $(document).on("keydown", keycall);
   $.getJSON("questions/data.json",{}, function( input ){ 
     /*  # do stuff here  */ 
@@ -88,33 +90,14 @@ $(document).ready(function(){
     reformat();
   });
   ifr = document.getElementById('sound');
-  score0 = 0;
-  score1 = 0;
-  strikeCount = 0;
   setTimeout(nextQuestion,1);
-});
-
-function reformat() {
-  // Take the slightly poorly formatted data object and reformat it
-  for (question in data) {
-    questions.push(question);
-    qdata = data[question];
-    alist = [];
-    for (answer in qdata) {
-      if (qdata[answer]>1) {
-        alist.push({a:answer,n:qdata[answer]});
-      }
-    }
-    alist.sort(function(x,y) {return y.n-x.n;});
-    answers.push(alist);
-  }
 }
 
 function nextQuestion() {
   if (curq>=1) {
     document.getElementById("wrapper_"+(curq-1)).style.display="none";
   }
-  round = 0;
+  round = -1;
   curteam = -1;
   resetStrikes();
   addQuestionData(curq);
@@ -185,7 +168,8 @@ function sumScores(score) {
   else if (curteam==1) {
     score1 += score;
   }
-  $('#score').text(score0+score1);
+  $('#score0').text(score0);
+  $('#score1').text(score1);
 }
 
 function addQuestionData(curq) {
@@ -229,4 +213,21 @@ function addQuestionData(curq) {
 
   divstringform=f1+cell1+at[0]+at[1]+at[2]+at[3]+at[4]+celle+cell1+at[5]+at[6]+at[7]+at[8]+at[9]+celle+e1;
   $("#rotating-answers").append(divstringform);
+}
+
+
+function reformat() {
+  // Take the slightly poorly formatted data object and reformat it
+  for (question in data) {
+    questions.push(question);
+    qdata = data[question];
+    alist = [];
+    for (answer in qdata) {
+      if (qdata[answer]>1) {
+        alist.push({a:answer,n:qdata[answer]});
+      }
+    }
+    alist.sort(function(x,y) {return y.n-x.n;});
+    answers.push(alist);
+  }
 }

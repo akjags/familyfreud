@@ -164,7 +164,22 @@ figure {
   vertical-align: middle;
 }
 
-#score {
+#score0 {
+  background-color: black;
+  border: #FFD33E solid 3px;
+  color: #f0f060;
+  font-family: "Courier New", Courier, monospace; 
+  font-size: 90px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding-right: 10px;
+  text-align: right;
+  width: 150px;
+}
+
+#score1 {
   background-color: black;
   border: #FFD33E solid 3px;
   color: #f0f060;
