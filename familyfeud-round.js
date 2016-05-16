@@ -4,7 +4,6 @@ var strikeCount;
 var data;
 var questions = [];
 var answers = [];
-var answernum = [];
 var curq = 0;
 var curteam = 0; // track which team is answering questions
 var round = 0; // 0 = first response team, 1 = second team trying
@@ -55,10 +54,6 @@ function nextQuestion() {
   curq+=1;
 }
 
-function addQuestionData(curq) {
-  $("#question").text(questions[curq]);
-}
-
 function playBell() {
   ifr.src = 'ff-clang.mp3';
 }
@@ -99,3 +94,101 @@ function sumScores(score) {
   sum += score
   $('#score').text(sum);
 }
+
+function addQuestionData(curq) {
+  $("#question").text(questions[curq]);
+
+  //now shit gets really complicated, we have to add to the "rotating-answers"
+  //div a new wrapper with all the questions & answers... oh boy
+  //we'll do this by adding the front of each tag in one array
+  var frontstrs = [];
+  //and the back of the tags in this other array
+  var backstrs = []; 
+  //then we'll combine the arrays into one huge string, but in reverse
+  var f1 = "<div class=\"wrapper\" id=\"wrapper_"+curq+"\">";
+  var e1 = ("</div>");
+  var canswers = answers[curq];
+  var at = [];
+  for (var ai=0; ai<5; ai++) {
+    var answer = canswers[ai];
+    var l1 = "<section class=\"container active\" id=\"answer"+ai+"\" data-score=\""+answer.n+"\">";
+    var l2 = "<div class=\"answer\">";
+    var l3 = "<figure class=\"front\"><span>"+(ai+1)+"</span></figure>";
+    var l4 = "<figure class=\"back\">"+answer.a+"<span class=\"score\">"+answer.n+"</span></figure>";
+    var l5 = "</div>";
+    var l6 = "</section>";
+    at.push(l1+l2+l3+l4+l5+l6);
+  }
+  var max_answers = 10;
+  while (ai<max_answers) {
+    var l1 = "<section class=\"container\">";
+    var l2 = "<div class=\"inactive\"></div>";
+    var l3 = "</section>";
+    at.push(l1+l2+l3);
+    ai+=1;
+  }
+  var cell1 = "<div class=\"cell\">";
+  var celle = "</div>";
+
+  divstringform=f1+cell1+at[0]+at[1]+at[2]+at[3]+at[4]+celle+cell1+at[5]+at[6]+at[7]+at[8]+at[9]+celle+e1;
+  $("#rotating-answers").append(divstringform);
+}
+
+
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section> 
+
+// <div class="wrapper" id="wrapper_0">
+//         <div class="cell">
+//           <section class="container active" id="answer1" data-score="43">
+//             <div class="answer">
+//               <figure class="front"><span>1</span></figure>
+//               <figure class="back">Answer one <span class="score">43</span></figure>
+//             </div>
+//           </section>
+
+//           <section class="container active" id="answer2" data-score="31">
+//             <div class="answer">
+//               <figure class="front"><span>2</span></figure>
+//               <figure class="back">Answer two <span class="score">31</span></figure>
+//             </div>
+//           </section>
+
+//           <section class="container active" id="answer3" data-score="23">
+//            <div class="answer">
+//               <figure class="front"><span>3</span></figure>
+//               <figure class="back">Answer three <span class="score">23</span></figure>
+//             </div>
+//           </section>
+
+//           <section class="container active" id="answer4" data-score="3">
+//            <div class="answer">
+//               <figure class="front"><span>4</span></figure>
+//               <figure class="back">Answer four <span class="score">3</span></figure>
+//             </div>
+//           </section>
+      
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section> 
+//         </div>
+
+//         <div class="cell">
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section>
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section>
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section>
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section>
+//           <section class="container">
+//             <div class="inactive"></div>
+//           </section>                
+//         </div>
+//       </div>
