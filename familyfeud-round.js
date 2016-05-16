@@ -48,6 +48,9 @@ function reformat() {
 }
 
 function nextQuestion() {
+  if (curq>=1) {
+    document.getElementById("wrapper_"+(curq-1)).style.display="none";
+  }
   addQuestionData(curq);
   setUpFlippers();
   setUpBuzzers();
