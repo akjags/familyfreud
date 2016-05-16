@@ -61,7 +61,22 @@ function changeTeam() {
 }
 
 function changeTeamGUI(team) {
-  console.log('indicate that it is team:'+team+' now');
+  if (curteam == 0) {
+    $('#arrow_container').empty().prepend('<img id="leftarrow" src="arrow.png" />')
+    document.getElementById("team0").style.border="10px solid white";
+    document.getElementById("team1").style.border="10px solid transparent";
+    $('#arrow_container').fadeIn('slow')
+    setTimeout(function() {$('#arrow_container').fadeOut('slow');}, 1500);
+  } else if (curteam == 1) {
+      $('#arrow_container').empty().prepend('<img id="rightarrow" src="arrow.png" />')
+      document.getElementById("team0").style.border="10px solid transparent";
+      document.getElementById("team1").style.border="10px solid white";
+      $('#arrow_container').fadeIn('fast')
+      setTimeout(function() {$('#arrow_container').fadeOut('fast');}, 1500);
+  } else {
+      document.getElementById("team0").style.border="10px solid transparent";
+      document.getElementById("team1").style.border="10px solid transparent";
+  }
 }
 
 function setRoundInd() {
@@ -112,6 +127,7 @@ function nextQuestion() {
   setUpFlippers();
   setRoundInd();
   curq+=1;
+  changeTeamGUI(curteam);
 }
 
 function resetStrikes() {
