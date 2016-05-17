@@ -120,23 +120,26 @@ function pauseForQuestions() {
 }
 
 function nextQuestion() {
-  if (curq != 10) {
+  if (curq != 3) {
     musicAndStuff();
-  }
-  if (curq>=1) {
-    document.getElementById("wrapper_"+(curq-1)).style.display="none";
-  }
-  round = -1;
-  curteam = -1;
-  resetStrikes();
-  addQuestionData(curq);
-  setUpFlippers();
-  setRoundInd();
-  curq+=1;
-  if (curq == 10) {
+    timeout = 0
+  } else {
     addCommercial()
+    timeout = 60000
   }
-  changeTeamGUI(curteam);
+  setTimeout(function() {
+    if (curq>=1) {
+      document.getElementById("wrapper_"+(curq-1)).style.display="none";
+    }
+    round = -1;
+    curteam = -1;
+    resetStrikes();
+    addQuestionData(curq);
+    setUpFlippers();
+    setRoundInd();
+    curq+=1;
+    changeTeamGUI(curteam);
+  },timeout)
 }
 
 function musicAndStuff() {
@@ -144,9 +147,14 @@ function musicAndStuff() {
     ifr.src = 'fftheme.mp3';
   }
   imgdiv = $('#imgdiv');
-  setTimeout(function() {imgdiv.fadeIn('fast');},500);
   // setTimeout(playBuzzer(1),100);
-  setTimeout(function() {imgdiv.fadeOut('slow');}, 3500); 
+  if (curq == 0) {
+    setTimeout(function() {imgdiv.fadeIn('fast');},500);
+    setTimeout(function() {imgdiv.fadeOut('slow');}, 3500); 
+  } else {
+    imgdiv.fadeIn('fast');
+    setTimeout(function() {imgdiv.fadeOut('slow');}, 1000);
+  }
 }
 
 function resetStrikes() {
@@ -280,10 +288,11 @@ function addCommercial() {
   $("#question").text('And now for Brain Facts with John Cleese!');
    setTimeout(function() {
     document.getElementById ("commercial").style.visibility = "visible"
-  var iframe = document.createElement('iframe');
-  iframe.src = "https://www.youtube.com/embed/DXQaVRj8LIQ?autoplay=1"
-  iframe.height= "480"
-  iframe.width = "854"
-  document.getElementById("commercial").appendChild(iframe);
-}, 5000)
+    document.getElementById ("commercial_background").style.visibility = "visible"
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://www.youtube.com/embed/DXQaVRj8LIQ?autoplay=1"
+    iframe.height= "480"
+    iframe.width = "854"
+    document.getElementById("commercial").appendChild(iframe);
+  }, 3000)
 }
