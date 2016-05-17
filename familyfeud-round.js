@@ -120,7 +120,7 @@ function pauseForQuestions() {
 }
 
 function nextQuestion() {
-  if (curq == 0) {
+  if (curq != 10) {
     musicAndStuff();
   }
   if (curq>=1) {
