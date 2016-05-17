@@ -120,7 +120,9 @@ function pauseForQuestions() {
 }
 
 function nextQuestion() {
-  musicAndStuff();
+  if (curq == 0) {
+    musicAndStuff();
+  }
   if (curq>=1) {
     document.getElementById("wrapper_"+(curq-1)).style.display="none";
   }
@@ -131,6 +133,9 @@ function nextQuestion() {
   setUpFlippers();
   setRoundInd();
   curq+=1;
+  if (curq == 10) {
+    addCommercial()
+  }
   changeTeamGUI(curteam);
 }
 
@@ -266,4 +271,17 @@ function reformat() {
     alist.sort(function(x,y) {return y.n-x.n;});
     answers.push(alist);
   }
+}
+
+function addCommercial() {
+  $("#roundind").text('Pay attention!');
+  $("#question").text('And now for Brain Facts with John Cleese!');
+   setTimeout(function() {
+    document.getElementById ("commercial").style.visibility = "visible"
+  var iframe = document.createElement('iframe');
+  iframe.src = "https://www.youtube.com/embed/DXQaVRj8LIQ?autoplay=1"
+  iframe.height= "480"
+  iframe.width = "854"
+  document.getElementById("commercial").appendChild(iframe);
+}, 5000)
 }
