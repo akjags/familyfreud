@@ -29,6 +29,8 @@ for question in data:
 	sortzip = sorted(zip(a,n),key=lambda pair:pair[1], reverse=True)
 	n = [x for (y,x) in sortzip]
 	a = [y for (y,x) in sortzip]
+	anum = 1;
 	for ai,ni in sortzip:
-		f.write(ai + ' ' + str(ni) + '\n')
+		f.write(str(anum) + ': ' + ai + ' ' + str(ni) + '\n')
+		anum+=1
 	f.write('\n**********************************************************\n\n')
