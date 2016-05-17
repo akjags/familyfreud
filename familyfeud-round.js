@@ -27,10 +27,10 @@ function keycall(e) {
   if ((e.which || e.keyCode) == 116) {
     e.preventDefault(); alert('Blocking refresh...');
   }
-  if ((e.which || e.keyCode) == 37) {
+  if ((e.which || e.keyCode) == 33) {
     buzzIn(0);
   }
-  if ((e.which || e.keyCode) == 39) {
+  if ((e.which || e.keyCode) == 34) {
     buzzIn(1);
   }
 }
