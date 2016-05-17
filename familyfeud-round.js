@@ -135,12 +135,11 @@ function nextQuestion() {
 }
 
 function musicAndStuff() {
+  ifr.src = 'fftheme.mp3';
   imgdiv = $('#imgdiv');
-  imgdiv.fadeIn('fast');
+  setTimeout(function() {imgdiv.fadeIn('fast');},500);
   // setTimeout(playBuzzer(1),100);
-  setTimeout(function() {imgdiv.fadeOut('slow');}, 1500); 
-  console.log('got called');
-
+  setTimeout(function() {imgdiv.fadeOut('slow');}, 3500); 
 }
 
 function resetStrikes() {
