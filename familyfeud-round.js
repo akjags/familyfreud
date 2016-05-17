@@ -120,6 +120,7 @@ function pauseForQuestions() {
 }
 
 function nextQuestion() {
+  musicAndStuff();
   if (curq>=1) {
     document.getElementById("wrapper_"+(curq-1)).style.display="none";
   }
@@ -131,6 +132,15 @@ function nextQuestion() {
   setRoundInd();
   curq+=1;
   changeTeamGUI(curteam);
+}
+
+function musicAndStuff() {
+  imgdiv = $('#imgdiv');
+  imgdiv.fadeIn('fast');
+  // setTimeout(playBuzzer(1),100);
+  setTimeout(function() {imgdiv.fadeOut('slow');}, 1500); 
+  console.log('got called');
+
 }
 
 function resetStrikes() {

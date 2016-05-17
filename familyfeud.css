@@ -167,6 +167,19 @@ figure {
   vertical-align: middle;
 }
 
+#imgdiv {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align:center;
+  width:100%;
+  z-index:9;
+}
+
+#ffimg {
+  width:85%;
+}
+
 #wrong {
   position: fixed;
   text-align: center;
