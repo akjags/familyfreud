@@ -125,9 +125,11 @@ function nextQuestion() {
     timeout = 0
   } else {
     addCommercial()
-    timeout = 60000
+    timeout = 93000
+    setTimout(function() {$("#question").text('Back to the game!');}, 2000)
   }
   setTimeout(function() {
+    document.getElementById ("commercial_background").style.visibility = "hidden"
     if (curq>=1) {
       document.getElementById("wrapper_"+(curq-1)).style.display="none";
     }
@@ -283,16 +285,24 @@ function reformat() {
   }
 }
 
+
 function addCommercial() {
-  $("#roundind").text('Pay attention!');
+  $("#roundind").text('Learning Time!');
   $("#question").text('And now for Brain Facts with John Cleese!');
    setTimeout(function() {
     document.getElementById ("commercial").style.visibility = "visible"
     document.getElementById ("commercial_background").style.visibility = "visible"
     var iframe = document.createElement('iframe');
+    iframe.id = "movie"
     iframe.src = "https://www.youtube.com/embed/DXQaVRj8LIQ?autoplay=1"
     iframe.height= "480"
     iframe.width = "854"
     document.getElementById("commercial").appendChild(iframe);
   }, 3000)
+   setTimeout(function() {
+    $('#commercial').empty()
+    document.getElementById("commercial").style.zIndex = "-1";
+    document.getElementById("commercial_background").style.zIndex = "-1";
+ },90000)
 }
+
