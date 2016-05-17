@@ -135,7 +135,9 @@ function nextQuestion() {
 }
 
 function musicAndStuff() {
-  ifr.src = 'fftheme.mp3';
+  if (curq==0) {
+    ifr.src = 'fftheme.mp3';
+  }
   imgdiv = $('#imgdiv');
   setTimeout(function() {imgdiv.fadeIn('fast');},500);
   // setTimeout(playBuzzer(1),100);
