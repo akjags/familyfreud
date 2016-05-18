@@ -9,7 +9,8 @@ var curq = 0;
 var curteam = -1; // track which team is answering questions
 var round = -1;
 var attempt = 0;
-
+var videolength = 90000
+var commercialq = 8
 // Rules:
 // Question comes up
 // A team buzzes in -- they have one chance to get something on the board
@@ -120,19 +121,18 @@ function pauseForQuestions() {
 }
 
 function nextQuestion() {
-  if (curq != 3) {
-    musicAndStuff();
-    timeout = 0
-  } else {
+  timeout = 0
+  if (curq == commercialq) {
     addCommercial()
-    timeout = 93000
-    setTimout(function() {$("#question").text('Back to the game!');}, 2000)
+    timeout = videolength+6000
+    setTimeout(function() {$("#question").text('Back to the game!');}, videolength+3000)
   }
   setTimeout(function() {
     document.getElementById ("commercial_background").style.visibility = "hidden"
     if (curq>=1) {
       document.getElementById("wrapper_"+(curq-1)).style.display="none";
     }
+    musicAndStuff();
     round = -1;
     curteam = -1;
     resetStrikes();
@@ -145,13 +145,10 @@ function nextQuestion() {
 }
 
 function musicAndStuff() {
-  if (curq==0) {
-    ifr.src = 'fftheme.mp3';
-  }
   imgdiv = $('#imgdiv');
-  // setTimeout(playBuzzer(1),100);
-  if (curq == 0) {
-    setTimeout(function() {imgdiv.fadeIn('fast');},500);
+  if (curq==0 || curq == commercialq) {
+    ifr.src = 'fftheme.mp3';
+    setTimeout(function() {imgdiv.fadeIn('fast');},curq == 0 ? 500: 0);
     setTimeout(function() {imgdiv.fadeOut('slow');}, 3500); 
   } else {
     imgdiv.fadeIn('fast');
@@ -229,6 +226,7 @@ function addQuestionData(curq) {
 
   $("#question").text(questions[curq]);
   if (curq >= questions.length) {
+    $("#roundind").text('')
     $("#question").text("Final Scores!!");
     return;
   }
@@ -303,6 +301,6 @@ function addCommercial() {
     $('#commercial').empty()
     document.getElementById("commercial").style.zIndex = "-1";
     document.getElementById("commercial_background").style.zIndex = "-1";
- },90000)
+ },videolength+3000)
 }
 
