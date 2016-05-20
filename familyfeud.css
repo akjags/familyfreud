@@ -45,7 +45,7 @@ figure {
   line-height: 2em;
   text-align: center;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.4em;
   position: absolute;
   -webkit-backface-visibility: hidden;
      -moz-backface-visibility: hidden;
@@ -86,6 +86,7 @@ figure {
        -o-transform: rotateX( 180deg );
           transform: rotateX( 180deg );
   outline: 2px solid black;
+  font-size: 1.6em;
 }
 
 .cell {
@@ -94,7 +95,7 @@ figure {
 
 .container {
   width: 400px;
-  height: 2em;
+  height: 3em;
   position: relative;
   margin: 0 auto 20px;
   -webkit-perspective: 800px;

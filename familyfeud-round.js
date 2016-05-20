@@ -10,7 +10,7 @@ var curteam = -1; // track which team is answering questions
 var round = -1;
 var attempt = 0;
 var videolength = 90000
-var commercialq = 8
+var commercialq = -1
 // Rules:
 // Question comes up
 // A team buzzes in -- they have one chance to get something on the board
