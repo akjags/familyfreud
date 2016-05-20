@@ -228,6 +228,8 @@ figure {
   width: 40%;
   height: 15%;
   z-index: 3;
+  height: 17.5%;
+  z-index: 1;
   top: 10%;
   color: white;
   padding: 10px;
@@ -256,7 +258,7 @@ figure {
 
 #roundind {
   display: inline-block;
-  font-size: 2em;
+  font-size: 2vw;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -267,7 +269,7 @@ figure {
 
 #question {
   display: inline-block;
-  font-size: 3em;
+  font-size: 2.5vw;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -325,7 +327,7 @@ figure {
   color: white;
   background-color: #C13237;
   font-family: "Courier New", Courier, monospace; 
-  font-size: 60px;
+  font-size: 2.5vw;
   text-align: center;
 }
 
@@ -343,7 +345,7 @@ figure {
   color: white;
   background-color: #C13237;
   font-family: "Courier New", Courier, monospace; 
-  font-size: 60px;
+  font-size: 2.5vw;
   text-align: center;
 }
 
