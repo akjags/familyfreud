@@ -11,6 +11,9 @@ with open('answers2017.csv','r') as f:
 		for i in range(1,length):
 			cur = data[questions[i-1]]
 			item = row[i]
+			if item == "":
+			    continue
+
 			if item in cur.keys():
 				cur[item]+=1
 			else:
