@@ -102,7 +102,7 @@ $(document).ready(function(){
 
 function initialize() {
   $(document).on("keydown", keycall);
-  $.getJSON("./questions/data.json",{}, function( input ){ 
+  $.getJSON("https://raw.githubusercontent.com/lampinen/familyfreud/gh-pages/questions/data.json",{}, function( input ){ 
     /*  # do stuff here  */ 
     data=input;
     reformat();
