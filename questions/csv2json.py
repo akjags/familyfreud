@@ -1,19 +1,20 @@
 import csv
 import json
 
-length = 32 # hard coded, 32 total questions
+length = 33 # hard coded, total number of columns 
 data = {}
-with open('qa.csv','r') as f:
+with open('answers2017.csv','r') as f:
 	reader = csv.reader(f)
+	questions = reader.next()[1:]
+	data = dict([(q,{}) for q in questions])
 	for row in reader:
-		cur = {}
-		for i in range(1,32):
+		for i in range(1,length):
+			cur = data[questions[i-1]]
 			item = row[i]
 			if item in cur.keys():
 				cur[item]+=1
 			else:
 				cur[item] = 1
-		data[row[0]] = cur
 
 for question in data.keys():
 	print(question)
