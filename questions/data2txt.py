@@ -10,10 +10,11 @@
 # etc
 
 import json
+from collections import OrderedDict
 
 json_data=open('data.json').read()
 
-data = json.loads(json_data)
+data = json.loads(json_data, object_pairs_hook=OrderedDict) #loads data while maintaining order from file
 
 f = open('data_text.txt','w')
 count = 1;
