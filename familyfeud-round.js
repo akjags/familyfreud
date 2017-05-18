@@ -246,7 +246,7 @@ function addQuestionData(curq) {
     var l1 = "<section class=\"container active\" id=\"answer"+ai+"\" data-score=\""+answer.n+"\">";
     var l2 = "<div class=\"answer\">";
     var l3 = "<figure class=\"front\"><span>"+(ai+1)+"</span></figure>";
-    var l4 = "<figure class=\"back\">"+answer.a+"<span class=\"score\">"+answer.n+"</span></figure>";
+    var l4 = "<figure class=\"back\"><span class=\"answertext\">"+answer.a+"</span><span class=\"score\">"+answer.n+"</span></figure>";
     var l5 = "</div>";
     var l6 = "</section>";
     at.push(l1+l2+l3+l4+l5+l6);

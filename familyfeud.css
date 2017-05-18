@@ -124,6 +124,16 @@ figure {
   padding-right: 15px;
 }
 
+.answertext {
+  position: absolute;
+  left: 0;
+  right: 2.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
 .score {
   background: #C13237;
   position: absolute;
