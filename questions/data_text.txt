@@ -1,7 +1,7 @@
 What is the best place in Jordan hall to get drunk?
-1: Alone in the privacy of your own offices 12
-2: The lounge on the free wine after colloquium 11
-3: The FYP clinic 4
+1: The lounge on the free wine after colloquium 13
+2: Alone in the privacy of your own offices 12
+3: The FYP clinic 5
 4: FriSem (drink every time Herb asks a question) 2
 
 **********************************************************
@@ -17,40 +17,41 @@ Which 1st year is most likely to fall asleep in class?
 **********************************************************
 
 What do the 2nd years excel at?
-1: Being the most stressed cohort 12
-2: NOT being first years 9
-3: Stealing code from the 3rd years for FYP clinic games 4
+1: Being the most stressed cohort 13
+2: NOT being first years 10
+3: Stealing code from the 3rd years for FYP clinic games 5
 4: Life 2
 5: Being big sibs 2
 
 **********************************************************
 
 Which 1st year is most likely to go wild at a party?
-1: Craig Williams 17
+1: Craig Williams 19
 2: Akshay 8
-3: Kiara 2
+3: Katherine with a K 2
+4: Kiara 2
 
 **********************************************************
 
 What are the biggest impediments to research?
 1: Your advisor 12
-2: Life 5
-3: The 2nd years pestering you about "family freud" questions 4
-4: 365 Days of Summer (except for this year) 4
-5: TAing 3
+2: TAing 6
+3: Life 5
+4: The 2nd years pestering you about "family freud" questions 4
+5: 365 Days of Summer (except for this year) 4
 
 **********************************************************
 
 Most common FYP problems?
 1: Having data so bad you can't even p-hack it 13
-2: I got 99 problems and FYP is all of them. 9
-3: Not having data 5
+2: I got 99 problems and FYP is all of them. 11
+3: Not having data 6
 4: Having to go to a stupid clinic 3
 
 **********************************************************
 
 How many years does it take to finish your core classes?
-1: WTF core committee, you were supposed to kill the cores and make this question irrelevant 14
+1: WTF core committee, you were supposed to kill the cores and make this question irrelevant 17
 2: 5 6
 3: What is a core class? 4
 4: 3 3
@@ -59,22 +60,22 @@ How many years does it take to finish your core classes?
 **********************************************************
 
 What was the first years' boldest move?
-1: Consistently showing up late to prosem 9
-2: Not applying for psych 1 TA-ships 8
-3: Actually asking questions in colloquium 8
+1: Actually asking questions in colloquium 10
+2: Not applying for psych 1 TA-ships 9
+3: Consistently showing up late to prosem 9
 4: Spending all their time on 252 instead of things that actually matter 2
 
 **********************************************************
 
 Who did the best job of naming their first-born?
-1: Noah (R Malachai) 17
-2: Yochai (Alma) 7
+1: Noah (R Malachai) 18
+2: Yochai (Alma) 8
 3: Amit (Talma) 6
 
 **********************************************************
 
 Who is most likely to swear in lab / colloquium?
-1: Lee, because the speaker ran over 16
+1: Lee, because the speaker ran over 18
 2: Benoit 3
 3: Ewart 3
 4: Carol 3
@@ -83,24 +84,24 @@ Who is most likely to swear in lab / colloquium?
 **********************************************************
 
 Most likely to have driven their parents crazy by asking "why" all the time?
-1: Tyler 15
-2: Yochai 6
-3: R Malachai 4
+1: Tyler 16
+2: Yochai 7
+3: R Malachai 5
 4: Ian E. 2
 
 **********************************************************
 
 What career is your PhD REALLY preparing you for?
-1: Marrying up 12
+1: Marrying up 14
 2: The eternal postdoc 8
-3: App Academy 5
-4: Nothing 4
+3: Nothing 5
+4: App Academy 5
 
 **********************************************************
 
 1st year most likely to wake up in their office/lab/CNI?
-1: Chengxu 9
-2: Mika 5
+1: Chengxu 10
+2: Mika 6
 3: Katherine with a K 3
 4: Cinoo 2
 5: Jackie 2
@@ -109,8 +110,8 @@ What career is your PhD REALLY preparing you for?
 **********************************************************
 
 What movie best represents grad school?
-1: Groundhog day 9
-2: Ferris Bueller's Day Off 7
+1: Groundhog day 10
+2: Ferris Bueller's Day Off 8
 3: A Series of Unfortunate Events 6
 4: Titanic 4
 5: The Hunger Games 3
@@ -118,18 +119,18 @@ What movie best represents grad school?
 **********************************************************
 
 Which faculty member is most likely secret BFFs with Beyonce?
-1: Carol 13
+1: Carol 14
 2: James Gross 5
 3: Laura 4
-4: Mike 2
+4: Mike 3
 5: Brian 2
 
 **********************************************************
 
 What is the worst thing about the beautiful Stanford campus?
 1: Caterpillars 10
-2: It's a country club in disguise 5
-3: Separation from any kind of life 5
+2: It's a country club in disguise 7
+3: Separation from any kind of life 6
 4: Tourists 4
 5: Too beautiful 3
 6: Undergrads 3
@@ -138,34 +139,35 @@ What is the worst thing about the beautiful Stanford campus?
 
 Most likely to moonlight as a zombie slayer?
 1: Catherine with a C 9
-2: Camilla 4
-3: Pam 4
+2: Pam 5
+3: Camilla 4
 4: Anna 3
 5: Elizabeth 2
-6: Jon 2
+6: Mika 2
+7: Jon 2
 
 **********************************************************
 
 What is the top quote from emails sent by Roz?
-1: If you are looking for the perfect box to store paperwork or moving boxes, there are 10 empty Xerox boxes with lids on the 5th floor outside of the photo copier room. Please help yourself. 12
+1: If you are looking for the perfect box to store paperwork or moving boxes, there are 10 empty Xerox boxes with lids on the 5th floor outside of the photo copier room. Please help yourself. 13
 2: BYOP 9
-3: keys found in the ladies' bathroom 5
+3: keys found in the ladies' bathroom 7
 4: Unclaimed package for ... 2
 
 **********************************************************
 
 What animal does Jay remind you of?
 1: Honey Badger 14
-2: Squirrel 9
-3: Kitten 3
-4: Moose 2
+2: Squirrel 10
+3: Moose 4
+4: Kitten 3
 
 **********************************************************
 
 Most difficult professor to set a meeting with?
 1: Jennifer 9
-2: Everyone 7
-3: David Starr Jordan 4
+2: Everyone 8
+3: David Starr Jordan 5
 4: Laura 3
 5: Geoff 3
 6: Russ 2
@@ -174,18 +176,18 @@ Most difficult professor to set a meeting with?
 
 Secretly a member of a successful boy/girl band?
 1: BoKyung 8
-2: Cai 7
-3: Y.C 6
+2: Y.C 7
+3: Cai 7
 4: Andrew 3
-5: Catherine with a C 2
-6: Camilla 2
+5: Camilla 3
+6: Catherine with a C 2
 
 **********************************************************
 
 Most likely to replicate the prison experiment?
 1: Nick 12
-2: Robert 5
-3: Maia 3
+2: Robert 6
+3: Maia 4
 4: Rosemary 3
 5: Catherine with a C 2
 6: Cinoo 2
@@ -193,7 +195,7 @@ Most likely to replicate the prison experiment?
 **********************************************************
 
 If our department were to make merchandise, it would be...?
-1: Growth mindset posters/books/shirts/cups/... 17
+1: Growth mindset posters/books/shirts/cups/... 20
 2: Commemorative wines 5
 3: CV lines 3
 4: Zimbardo masks 2
@@ -203,7 +205,7 @@ If our department were to make merchandise, it would be...?
 
 Most likely to say something inappropriate to a participant?
 1: Cameron 11
-2: Craig Williams 7
+2: Craig Williams 8
 3: Jesse 6
 4: Ian E. 3
 
@@ -211,21 +213,21 @@ Most likely to say something inappropriate to a participant?
 
 What is the most common illicit activity in the psych department?
 1: Tax evasion 17
-2: Illegal textbook downloads 4
+2: Illegal textbook downloads 6
 3: P-hacking 4
-4: Arson (starting with burning FYP) 2
-5: Moonshine in the 5th floor bathroom 2
+4: Moonshine in the 5th floor bathroom 3
+5: Arson (starting with burning FYP) 2
 
 **********************************************************
 
 Which faculty member is the most likely to be mistaken for a grad student?
-1: Hyo 28
+1: Hyo 31
 
 **********************************************************
 
 Most common complaint of first years?
-1: Being a first year 11
-2: Stats 7
+1: Being a first year 13
+2: Stats 8
 3: Impostor syndrome 6
 4: Having FYP clinics that don't actually tell you anything about the FYP 5
 
@@ -235,12 +237,12 @@ Most likely to be in a coke zero commercial?
 1: Cayce 8
 2: Yochai 8
 3: Min Young 6
-4: Elizabeth 4
+4: Elizabeth 5
 
 **********************************************************
 
 Best faculty couple?
-1: Mike & Noah 12
+1: Mike & Noah 15
 2: Jennifer & Hazel 7
 3: Carol & Greg 5
 4: Laura & Ian 3
@@ -249,34 +251,34 @@ Best faculty couple?
 **********************************************************
 
 Most likely place for Phil Zimbardo to secretly watch you?
-1: He has eyes everywhere 10
-2: Behind the mirror in the 2nd floor bathroom 9
+1: He has eyes everywhere 11
+2: Behind the mirror in the 2nd floor bathroom 10
 3: ... in your sleep 4
 4: Poster in your office 4
 
 **********************************************************
 
 What R library is the best?
-1: ggplot2 9
-2: dplyr+tidyr 8
-3: What's R? 5
-4: lme4 4
+1: dplyr+tidyr 10
+2: ggplot2 9
+3: lme4 5
+4: What's R? 5
 5: car 2
 
 **********************************************************
 
 Herb Clark is most likely to be found
-1: everywhere 16
+1: everywhere 18
 2: in social lab 5
-3: running in front of Jordan in the morning 3
+3: running in front of Jordan in the morning 4
 4: in outer space 2
 5: in colloquium 2
 
 **********************************************************
 
 Best dressed lab?
-1: Dweck Lab (i.e. Carol) 13
-2: Poldrack Lab (i.e. Ian E.) 8
+1: Dweck Lab (i.e. Carol) 14
+2: Poldrack Lab (i.e. Ian E.) 9
 3: Gotlib Lab 6
 4: Frank Lab 2
 
