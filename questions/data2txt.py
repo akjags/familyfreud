@@ -16,7 +16,7 @@ json_data=open('data.json').read()
 
 data = json.loads(json_data, object_pairs_hook=OrderedDict) #loads data while maintaining order from file
 
-f = open('data_text.txt','w')
+f = open('data_text18.txt','w')
 count = 1;
 for question in data:
 	f.write(question+'\n')

@@ -2,9 +2,9 @@ import csv
 import json
 from collections import OrderedDict
 
-length = 33 # hard coded, total number of columns 
+length = 34 # hard coded, total number of columns 
 data = {}
-with open('answers2017.csv','r') as f:
+with open('answers2018.csv','r') as f:
 	reader = csv.reader(f)
 	questions = reader.next()[1:]
 	data = OrderedDict([(q,{}) for q in questions])
